@@ -1,6 +1,7 @@
 import './App.css'
 import { Item } from './components/Item'
 import { useItem } from './hooks/useItems'
+import { useSEO } from './hooks/useSEO'
 
 export type ItemId = `${string}-${string}-${string}-${string}`
 
@@ -18,6 +19,10 @@ export interface Item {
 
 function App() {
   const { items, addItem, removeItem } = useItem()
+  useSEO({
+    title: `[${items.length}] Prueba Técnica de React`,
+    description: `Lista de elementos`,
+  })
   const handledSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const { elements } = event.currentTarget
