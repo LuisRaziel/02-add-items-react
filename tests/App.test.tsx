@@ -12,7 +12,7 @@ describe('<App />', () => {
   test('should add items and remove them', async () => {
     const user = userEvent.setup()
 
-    render(<App />) 
+    render(<App />)
     const input = screen.getByRole('textbox')
     expect(input).toBeDefined()
 
@@ -33,10 +33,9 @@ describe('<App />', () => {
     const item = screen.getByText(randomText)
     const removeButton = item.querySelector('button')
     expect(removeButton).toBeDefined()
-    
+
     await user.click(removeButton!)
     const noResults = screen.getByText('No hay elementos')
     expect(noResults).toBeDefined()
-
   })
 })
